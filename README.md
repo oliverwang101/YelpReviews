@@ -1,7 +1,6 @@
 # YelpReviews
 A look into Yelp user behavior and their ratings.
-
-# Presentation Link
+Presentation:
 https://docs.google.com/presentation/d/1sg9R01Zi_Lv68AFLkTjxdwlEZKPFgHOPgBGbtrX1v8A/edit?usp=sharing
 
 # Data Collection and Cleaning
@@ -24,33 +23,28 @@ all_reviews = reviews.merge(bus,on="business_id",how="left")
 
 ### Exploration
 First we wanted to break down sentiments by rating, and of course, found that lower ratings had much higher negative sentiment compared to other ratings. What was interesting was simply the differences of mean positive and mean negative sentiments by rating. Whether or not a rating was 1 or 5, they all tended to contain various degrees of negative sentiment, but what may have been a stronger indicator of rating was the positive sentiment within a review.
+![](visuals/sentiment_by_rating.PNG)
+![](visuals/dist.PNG)
+![](visuals/dist2.PNG)
 
-
-
-
-
-
-
-Next, after examining the data, we found that sentiment results for certain ratings are heavily affected by the frequencies of certain ratings in the dataset. To examine this, we plotted the frequencies of each review rating, and restaurant review rating. It is clear that a rating of 1 was given the least often and 4 the most. This makes sense since a collection of ratings result in a less extreme rating, whereas users are free to choose from 1-5 on their reviews.
-
-
-
-
+Next, after examining the data, we found that sentiment results for certain ratings are heavily affected by the frequencies of certain ratings in the dataset. To examine this, we plotted the frequencies of each review rating, and restaurant review rating. It is clear that a rating of 1 was given the least often and 4 the most. This makes sense since a collection of ratings result in a less extreme rating, whereas users are free to choose from 1-5 on their reviews
+![](visuals/rest_rating_freq.PNG)
+![](visuals/rating_freq.PNG)
 
 As a result, we would get very little restaurant ratings of 5 and 1-2. Users tend to give a rating higher than 2 since bad sentiment is often balanced out by good aspects of a service/business. The frequencies of ratings directly affects the predictability of ratings since there are just less 1 and 2 rating than there are 4 and 5 ratings. Simply put, there is less information on lower ratings for predictability. Which may result in higher accuracy in predicting higher ratings, and lower accuracy when predicting lower ratings
 
-## Machine Learning
+# Machine Learning
 There are several machine learning models that we used to predict the various ratings of reviews.
 
-### Classifiers
-
+## Classifiers
+![](visuals/accuracy.PNG)
 
 Initially, we felt that since review ratings fell into 1 of 5 categories (1-5), we would predict each rating by using a classifier. First we attempted a classifier using KNN, and acquired an accuracy of .38 which is only a slightly better than just guessing one of the five ratings (.20).
 
 To give some sort of comparison to the KNN-classifier model, we ran a naive-bayes classifier which is a simple probabilistic classifier using Bayes Theorem which describes the liklihood of one event given prior knowledge of prior, similar events. In this case, we used a "naive" Bayes classifier as it assumes strong independence across features making it "naive". This classifier ultimately yielded us a decent result of an accuracy of .47 which is far better than KNN.
 
-### Regressors
-
+## Regressors
+![](visuals/models.PNG)
 
 ### K-Nearest Neighbors Regressor
 Since none of the classifier models yielded any significant results, we wanted to see how regressor models matched up. To establish a baseline, we simply chose KNN-regressors with just the words as features. This baseline yielded a result of 1.3 Mean Squared Error. This regressor was far worse than the Naive-Bayes classifier but it gave a better idea of how close our predictions were as we tuned the model and hyperparameters.
@@ -82,16 +76,16 @@ We finally obtained a result of .85 MSE from a Random Forest Regressor containin
 
 With an MSE of .85, we were able to predict ratings with under 1 rating point error which we consider to be a drastic improvement from the other models. This implied that our model was able to at least get somewhat of a ballpark of a review's rating.
 
-Importance
+###Importance
 
-
-
+![](visuals/import.PNG)
+![](visuals/words.PNG)
 
 To no surprise, sentiment within the review itself presented itself as the most important feature of our best model. As shown in previous visualizations, negative sentiment tended to exist throughout all types of ratings which resulted in it being the second most important after positive sentiment.
 
 The visualization contains vectorized words in the form of their index so to find the words. After looking up, by index, each of the words from the vectorizor model, we see that words of sentiment were indeed, important to the prediction of a rating.
 
-Conclusion
+#Conclusion
 Sentiment analysis shows the predictability of user review/rating patterns. Although review texts are user-written which includes a degree of randomness, there is still a measurability of the sentiment behind a review. After all, any decent review needs to contain SOME sentiment for it to have any usefulness and meaning with rating.
 
 With better models and more control over features, the more specific the results. For example, we could analyze trends of sentiment based on business types, user types, and locations. Such trends could be generated into useful information that potentially Yelp or Businesses could use for gain a better understanding of users behavior and various aspects of a business.
