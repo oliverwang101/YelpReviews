@@ -33,7 +33,7 @@ Next, after examining the data, we found that sentiment results for certain rati
 
 As a result, we would get very little restaurant ratings of 5 and 1-2. Users tend to give a rating higher than 2 since bad sentiment is often balanced out by good aspects of a service/business. The frequencies of ratings directly affects the predictability of ratings since there are just less 1 and 2 rating than there are 4 and 5 ratings. Simply put, there is less information on lower ratings for predictability. Which may result in higher accuracy in predicting higher ratings, and lower accuracy when predicting lower ratings
 
-# Machine Learning
+# Machine Learning (See CV_Models for models & parameters)
 There are several machine learning models that we used to predict the various ratings of reviews.
 
 ## Classifiers
