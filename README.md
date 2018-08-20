@@ -1,16 +1,17 @@
 # YelpReviews
-A look into Yelp user behavior and their ratings.
+A glimpse into Yelp user behavior and their ratings.
 Presentation:
 https://docs.google.com/presentation/d/1sg9R01Zi_Lv68AFLkTjxdwlEZKPFgHOPgBGbtrX1v8A/edit?usp=sharing
+# Summary
+After exposing ourselves to some general machine learning, statistic concepts, and data manipulation, what kind of interesting things can we extract with minimal understanding? This project encompasses the the major aspects required in making data useful: The **collection, cleaning, and exploring of data**, with several **machine learning models** to judge relative importance of features in the data. We decided to take our newfound skills into studying Yelp reviews, here's the process:
 
 # Data Collection and Cleaning
-
-### Method 1
+### Method 1 - Yelp Fusion API
 Since we were only allowed one response entry per API call from Yelp Fusion API, we needed to have some sort of iterator to loop through a set of entries (id, business, etc)
 
 To do this, we scrapped from a webpage, the top 400 cities in the United States (Beautiful Soup). Using each city, we acquired five businesses which included various business information as well as its business ID. Once the reviews have been retrieved, they are merged with the business dataset to obtain more variety of columns
 
-### Method 2 (Chosen)
+### Method 2 - Kaggle Data (Chosen)
 The result of the API calls were broken reviews and limited information on reviews so we resorted to using a json file found on a Yelp sentiment competition.
 
 Since our API calls only managed to get 10,000 reviews, we felt that it was only fair to use the same number of reviews from the Kaggle JSON file even though it had over 100,000 reviews.
