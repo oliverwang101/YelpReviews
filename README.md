@@ -15,7 +15,7 @@ The result of the API calls were broken reviews and limited information on revie
 
 Since our API calls only managed to get 10,000 reviews, we felt that it was only fair to use the same number of reviews from the Kaggle JSON file even though it had over 100,000 reviews.
 
-To our surprise, most of the results were actually the same, except for the fact that full reviews just yielded stronger differences in negative and positive sentiment.
+Most of the results were actually the same, except for the fact that full reviews just yielded stronger differences in negative and positive sentiment.
 
 Similar to method 1, we merged reviews with businesses to obtain more information per review (location, business type, etc):
 
@@ -60,10 +60,12 @@ In order to obtain the best hyperparameter for the Random Forest Regressor, We r
 
 These are just two of the handful of parameters that we have tuned for the model:
 
-Number of trees in random forest
+Number of trees in random forest:
+
 **n_estimators = [int(x) for x in np.linspace(start = 200, stop = 1000, num = 100)]**
 
-Number of features to consider at every split
+Number of features to consider at every split:
+
 **max_features = ['auto', 'sqrt']**
 
 After running a baseline RF-regressor with just the sentiments, we already got a better MSE of 1.03.
