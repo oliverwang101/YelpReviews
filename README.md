@@ -76,7 +76,7 @@ We finally obtained a result of .85 MSE from a Random Forest Regressor containin
 
 With an MSE of ***.85***, we were able to predict ratings with under 1 rating point error which we consider to be a drastic improvement from the other models. This implied that our model was able to at least get somewhat of a ballpark of a review's rating.
 
-###Importance
+### Importance
 
 ![](visuals/import.PNG)
 ![](visuals/words.PNG)
@@ -85,7 +85,7 @@ To no surprise, sentiment within the review itself presented itself as the most 
 
 The visualization contains vectorized words in the form of their index so to find the words. After looking up, by index, each of the words from the vectorizor model, we see that words of sentiment were indeed, important to the prediction of a rating.
 
-#Conclusion
+# Conclusion
 Sentiment analysis shows the predictability of user review/rating patterns. Although review texts are user-written which includes a degree of randomness, there is still a measurability of the sentiment behind a review. After all, any decent review needs to contain SOME sentiment for it to have any usefulness and meaning with rating.
 
 With better models and more control over features, the more specific the results. For example, we could analyze trends of sentiment based on business types, user types, and locations. Such trends could be generated into useful information that potentially Yelp or Businesses could use for gain a better understanding of users behavior and various aspects of a business.
