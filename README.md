@@ -19,7 +19,7 @@ To our surprise, most of the results were actually the same, except for the fact
 
 Similar to method 1, we merged reviews with businesses to obtain more information per review (location, business type, etc):
 
-all_reviews = reviews.merge(bus,on="business_id",how="left")
+**all_reviews = reviews.merge(bus,on="business_id",how="left")**
 
 ### Exploration
 First we wanted to break down sentiments by rating, and of course, found that lower ratings had much higher negative sentiment compared to other ratings. What was interesting was simply the differences of mean positive and mean negative sentiments by rating. Whether or not a rating was 1 or 5, they all tended to contain various degrees of negative sentiment, but what may have been a stronger indicator of rating was the positive sentiment within a review.
@@ -61,20 +61,20 @@ In order to obtain the best hyperparameter for the Random Forest Regressor, We r
 These are just two of the handful of parameters that we have tuned for the model:
 
 Number of trees in random forest
-n_estimators = [int(x) for x in np.linspace(start = 200, stop = 1000, num = 100)]
+**n_estimators = [int(x) for x in np.linspace(start = 200, stop = 1000, num = 100)]**
 
 Number of features to consider at every split
-max_features = ['auto', 'sqrt']
+**max_features = ['auto', 'sqrt']**
 
 After running a baseline RF-regressor with just the sentiments, we already got a better MSE of 1.03.
 
 Then, with the addition of several features, as well as the tuning of hyperparameters to those features, we find the best parameters to run our model on:
 
-{'n_estimators': 967, 'min_samples_split': 5, 'min_samples_leaf': 2, 'max_features': 'sqrt', 'max_depth': 90, 'bootstrap': True}
+**{'n_estimators': 967, 'min_samples_split': 5, 'min_samples_leaf': 2, 'max_features': 'sqrt', 'max_depth': 90, 'bootstrap': True}**
 
 We finally obtained a result of .85 MSE from a Random Forest Regressor containing all the columns of the review.
 
-With an MSE of .85, we were able to predict ratings with under 1 rating point error which we consider to be a drastic improvement from the other models. This implied that our model was able to at least get somewhat of a ballpark of a review's rating.
+With an MSE of ***.85***, we were able to predict ratings with under 1 rating point error which we consider to be a drastic improvement from the other models. This implied that our model was able to at least get somewhat of a ballpark of a review's rating.
 
 ###Importance
 
